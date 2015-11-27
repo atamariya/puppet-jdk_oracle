@@ -100,7 +100,7 @@ define jdk_oracle::install(
       exec { "get_jdk_installer_${version}":
         cwd     => $install_dir,
         creates => "${install_dir}/${installerFilename}",
-        command => "wget -c --no-cookies --no-check-certificate --header \"Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com\" --header \"Cookie: oraclelicense=accept-securebackup-cookie\" \"${javaDownloadURI}\" -O ${installerFilename}",
+        command => "wget -c --no-check-certificate --header \"Cookie: oraclelicense=accept-securebackup-cookie\" \"${javaDownloadURI}\" -O ${installerFilename}",
         timeout => 600,
         require => Package['wget'],
       }
